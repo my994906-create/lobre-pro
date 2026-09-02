@@ -338,21 +338,118 @@
             opacity: 1; transform: translate(-50%, -50%) scale(1.2);
             animation: shakeText 0.4s;
         }
+
+        /* ===================== REFINED MAIN MENU ===================== */
+        #introScreen {
+            justify-content: center; align-items: center; padding: 28px 18px;
+            overflow-y: auto; background:
+                radial-gradient(circle at 18% 15%, rgba(0,242,255,0.13), transparent 32%),
+                radial-gradient(circle at 88% 82%, rgba(188,0,255,0.14), transparent 35%),
+                #030308;
+        }
+        #introScreen::before, #introScreen::after {
+            content: ''; position: absolute; pointer-events: none; border-radius: 50%; filter: blur(1px);
+        }
+        #introScreen::before { width: 1px; height: 65%; left: 12%; top: 18%; background: linear-gradient(transparent, rgba(0,242,255,.35), transparent); }
+        #introScreen::after { width: 1px; height: 45%; right: 12%; top: 28%; background: linear-gradient(transparent, rgba(188,0,255,.35), transparent); }
+        .menu-shell {
+            position: relative; z-index: 1; width: min(930px, 100%); display: grid;
+            grid-template-columns: minmax(260px, .78fr) minmax(390px, 1.22fr); gap: clamp(28px, 5vw, 70px); align-items: center;
+        }
+        .brand-panel { text-align: left; padding: 10px 0; }
+        .menu-eyebrow { display: flex; align-items: center; gap: 9px; color: #6d7d9d; font-size: 10px; font-weight: 700; letter-spacing: 3px; }
+        .eyebrow-dot, .menu-live i { width: 7px; height: 7px; border-radius: 50%; background: #00f2ff; box-shadow: 0 0 12px #00f2ff; display: inline-block; }
+        .neon-title { margin: 16px 0 8px; font-size: clamp(3.5rem, 9vw, 6.6rem); line-height: .9; letter-spacing: 9px; animation: none; text-shadow: 0 0 18px rgba(0,242,255,.35), 0 0 48px rgba(188,0,255,.22); }
+        .neon-subtitle { margin: 0; font-size: clamp(.72rem, 1.5vw, .92rem); color: #9ca8c4; letter-spacing: 3px; text-shadow: none; }
+        .neon-subtitle b { color: #00f2ff; font-weight: 700; }
+        .brand-line { width: 92px; height: 2px; margin: 26px 0 18px; background: linear-gradient(90deg, #00f2ff, #bc00ff); box-shadow: 0 0 14px rgba(0,242,255,.55); }
+        .menu-description { max-width: 270px; color: #68728b; font-family: 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.65; text-align: left; }
+        .menu-panel { width: 100%; padding: clamp(18px, 3vw, 28px); border: 1px solid rgba(93,111,158,.28); border-radius: 28px; background: linear-gradient(145deg, rgba(15,17,34,.94), rgba(5,6,14,.94)); box-shadow: 0 24px 70px rgba(0,0,0,.42), inset 0 1px rgba(255,255,255,.05); }
+        .menu-hero { padding-bottom: 20px; border-bottom: 1px solid rgba(115,132,177,.18); }
+        .menu-hero-top, .menu-section-label { display: flex; justify-content: space-between; align-items: center; color: #68728b; font-size: 10px; font-weight: 700; letter-spacing: 2.5px; }
+        .menu-live { display: flex; align-items: center; gap: 7px; color: #00ff88; font-size: 9px; }
+        .menu-live i { width: 5px; height: 5px; background: #00ff88; box-shadow: 0 0 9px #00ff88; }
+        #introScreen .menu-button { margin: 0; min-width: 0; font-family: 'Orbitron', sans-serif; text-transform: uppercase; cursor: pointer; }
+        #introScreen .menu-primary { position: relative; display: flex; align-items: center; gap: 18px; width: 100%; margin-top: 12px; padding: 20px 22px; border: 1px solid #00f2ff; border-radius: 17px; color: #fff; background: linear-gradient(100deg, rgba(0,242,255,.16), rgba(0,242,255,.04)); box-shadow: 0 0 22px rgba(0,242,255,.12); text-align: left; }
+        #introScreen .menu-primary:hover, #introScreen .menu-primary:active { background: linear-gradient(100deg, rgba(0,242,255,.34), rgba(188,0,255,.12)); box-shadow: 0 0 30px rgba(0,242,255,.3); transform: translateY(-2px); }
+        .menu-primary .button-kicker { display: block; color: #79cfd8; font-size: 9px; letter-spacing: 2px; }
+        .menu-primary strong { display: block; margin-top: 4px; color: #fff; font-size: 22px; letter-spacing: 4px; }
+        .menu-primary .button-arrow { margin-left: auto; color: #00f2ff; font-size: 27px; font-family: 'Segoe UI', sans-serif; }
+        .menu-section-label { margin: 21px 0 10px; justify-content: flex-start; color: #7f8da9; font-size: 9px; }
+        .mode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+        #introScreen .compact-button { display: flex; align-items: center; gap: 10px; min-height: 70px; padding: 10px; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; background: rgba(255,255,255,.035); color: #fff; text-align: left; box-shadow: none; }
+        #introScreen .compact-button:hover, #introScreen .compact-button:active { transform: translateY(-2px); background: rgba(255,255,255,.08); box-shadow: 0 9px 20px rgba(0,0,0,.25); }
+        .mode-number { align-self: flex-start; color: currentColor; font-size: 9px; font-weight: 700; opacity: .7; letter-spacing: 1px; }
+        .compact-button strong, .utility-button span { display: block; color: #e8edf7; font-size: 10px; line-height: 1.35; letter-spacing: 1px; }
+        .compact-button small, .utility-button small { display: block; margin-top: 5px; color: #74809b; font-family: 'Segoe UI', sans-serif; font-size: 10px; letter-spacing: 0; text-transform: none; }
+        .utility-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; }
+        #introScreen .utility-button { padding: 13px 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 13px; background: rgba(255,255,255,.025); color: #dce4f5; text-align: left; box-shadow: none; }
+        #introScreen .utility-button:hover, #introScreen .utility-button:active { transform: translateY(-2px); background: rgba(255,255,255,.07); }
+        #introScreen .utility-button.gift { border-color: rgba(0,255,204,.28); }
+        #introScreen .utility-button.shop { border-color: rgba(255,215,0,.28); }
+        #introScreen .utility-button.stats { border-color: rgba(0,255,136,.28); }
+        #introScreen .utility-button.secondary { border-color: rgba(188,0,255,.28); }
+        @media (max-width: 720px) {
+            #introScreen { align-items: flex-start; padding: 24px 14px 34px; }
+            .menu-shell { grid-template-columns: 1fr; gap: 22px; max-width: 520px; margin: auto; }
+            .brand-panel { padding: 4px 8px 0; text-align: center; }
+            .menu-eyebrow { justify-content: center; }
+            .neon-title { margin-top: 12px; font-size: clamp(3.4rem, 18vw, 5.5rem); }
+            .brand-line { margin: 18px auto 14px; }
+            .menu-description { max-width: 330px; margin: auto; text-align: center; font-size: 14px; }
+            .menu-panel { border-radius: 23px; padding: 17px; }
+        }
+        @media (max-width: 430px) {
+            .mode-grid { grid-template-columns: 1fr; }
+            #introScreen .compact-button { min-height: 56px; }
+            .compact-button small { display: inline; margin-left: 7px; }
+        }
     </style>
 </head>
 <body>
-    <!-- INTRO -->
+    <!-- INTRO / MAIN MENU -->
     <div id="introScreen">
-        <h1 class="neon-title">LÖBRE</h1>
-        <p class="neon-subtitle">COMBO • MAĞAZA • POWER-UP • GÖREV MODU</p>
-        <button class="menu-button" onclick="startNormalMode()">▶ Oyna</button>
-        <button class="menu-button timeattack" onclick="startTimeAttackMode()">⏱ Zamana Karşı</button>
-        <button class="menu-button timed" onclick="showDurationModal()">⏲ Zamanlama</button>
-        <button class="menu-button challenge" onclick="startChallengeMode()">🎯 30 Hamle Modu</button>
-        <button class="menu-button gift" id="dailyRewardBtn" onclick="claimDailyReward()">🎁 Günlük Ödül</button>
-        <button class="menu-button shop" onclick="openShop()">🛒 Mağaza</button>
-        <button class="menu-button stats" onclick="showStats()">📊 İstatistikler</button>
-        <button class="menu-button secondary" onclick="openSettings()">⚙ Ayarlar</button>
+        <div class="menu-shell">
+            <section class="brand-panel">
+                <div class="menu-eyebrow"><span class="eyebrow-dot"></span> NEON PUZZLE ARENA</div>
+                <h1 class="neon-title">LÖBRE</h1>
+                <p class="neon-subtitle">NEON BLOCK BLAST <b>PRO</b></p>
+                <div class="brand-line"></div>
+                <p class="menu-description">Blokları yerleştir, kombo zincirini büyüt ve kendi rekorunu kır.</p>
+            </section>
+
+            <section class="menu-panel" aria-label="Ana menü">
+                <div class="menu-hero">
+                    <div class="menu-hero-top"><span>OYUNA BAŞLA</span><span class="menu-live"><i></i> HAZIR</span></div>
+                    <button class="menu-button menu-primary" onclick="startNormalMode()">
+                        <span class="button-kicker">KLASİK MOD</span>
+                        <strong>OYNA</strong>
+                        <span class="button-arrow">→</span>
+                    </button>
+                </div>
+
+                <div class="menu-section-label">OYUN MODLARI</div>
+                <div class="mode-grid">
+                    <button class="menu-button compact-button timeattack" onclick="startTimeAttackMode()">
+                        <span class="mode-number">01</span><span><strong>ZAMANA KARŞI</strong><small>Süreyi yen</small></span>
+                    </button>
+                    <button class="menu-button compact-button timed" onclick="showDurationModal()">
+                        <span class="mode-number">02</span><span><strong>ZAMANLAMA</strong><small>Süreyi seç</small></span>
+                    </button>
+                    <button class="menu-button compact-button challenge" onclick="startChallengeMode()">
+                        <span class="mode-number">03</span><span><strong>30 HAMLE</strong><small>Hamleni planla</small></span>
+                    </button>
+                </div>
+
+                <div class="menu-section-label">MERKEZ</div>
+                <div class="utility-grid">
+                    <button class="menu-button utility-button gift" id="dailyRewardBtn" onclick="claimDailyReward()"><span>GÜNLÜK ÖDÜL</span><small>Bugünkü hediyen</small></button>
+                    <button class="menu-button utility-button shop" onclick="openShop()"><span>MAĞAZA</span><small>Power-up’larını güçlendir</small></button>
+                    <button class="menu-button utility-button stats" onclick="showStats()"><span>İSTATİSTİKLER</span><small>Performansını gör</small></button>
+                    <button class="menu-button utility-button secondary" onclick="openSettings()"><span>AYARLAR</span><small>Deneyimini kişiselleştir</small></button>
+                </div>
+            </section>
+        </div>
     </div>
 
     <!-- DURATION -->
