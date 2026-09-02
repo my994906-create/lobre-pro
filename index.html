@@ -404,51 +404,120 @@
             #introScreen .compact-button { min-height: 56px; }
             .compact-button small { display: inline; margin-left: 7px; }
         }
+
+        /* ===================== MOBILE-FIRST HOME V2 ===================== */
+        #introScreen {
+            inset: 0; min-height: 100dvh; height: 100%; padding: calc(18px + env(safe-area-inset-top)) max(15px, env(safe-area-inset-left)) calc(22px + env(safe-area-inset-bottom));
+            display: flex; align-items: center; justify-content: flex-start; overflow-y: auto; animation: none;
+            background: radial-gradient(circle at 8% 0%, rgba(0,242,255,.11), transparent 34%), radial-gradient(circle at 100% 100%, rgba(188,0,255,.12), transparent 36%), #05060d;
+        }
+        #introScreen::before, #introScreen::after { display: none; }
+        .home-screen { position: relative; z-index: 1; width: min(600px, 100%); margin: auto; display: flex; flex-direction: column; gap: 16px; }
+        .home-topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 3px; }
+        .home-brand { display: flex; align-items: center; gap: 11px; min-width: 0; }
+        .home-mark { display: grid; place-items: center; flex: 0 0 43px; width: 43px; height: 43px; border: 1px solid rgba(0,242,255,.75); border-radius: 13px; color: #fff; font-size: 22px; font-weight: 900; letter-spacing: 1px; background: linear-gradient(145deg, rgba(0,242,255,.18), rgba(188,0,255,.14)); box-shadow: 0 0 18px rgba(0,242,255,.2); }
+        .home-brand-copy { min-width: 0; }
+        .home-kicker { display: block; margin-bottom: 3px; color: #71809e; font-size: 8px; font-weight: 700; letter-spacing: 2.4px; white-space: nowrap; }
+        .home-topbar .neon-title { margin: 0; font-size: clamp(2rem, 9vw, 3.5rem); line-height: .88; letter-spacing: clamp(4px, 1.4vw, 8px); animation: none; text-shadow: 0 0 18px rgba(0,242,255,.34), 0 0 38px rgba(188,0,255,.2); white-space: nowrap; }
+        .online-status { display: flex; align-items: center; gap: 7px; flex: 0 0 auto; padding: 8px 10px; border: 1px solid rgba(0,255,136,.25); border-radius: 999px; color: #00ff88; font-size: 8px; font-weight: 700; letter-spacing: 1.6px; }
+        .online-status i { width: 6px; height: 6px; border-radius: 50%; background: #00ff88; box-shadow: 0 0 10px #00ff88; }
+        .home-intro { padding: 10px 4px 1px; }
+        .home-welcome { margin: 0; color: #00f2ff; font-size: 10px; font-weight: 700; letter-spacing: 2.8px; }
+        .home-caption { margin: 7px 0 0; color: #8b95aa; font-family: 'Segoe UI', sans-serif; font-size: 15px; }
+        .home-content { padding: 16px; border: 1px solid rgba(112,130,176,.24); border-radius: 22px; background: linear-gradient(150deg, rgba(16,20,38,.94), rgba(7,8,18,.96)); box-shadow: 0 18px 45px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.05); }
+        .featured-game { padding-bottom: 17px; border-bottom: 1px solid rgba(132,147,184,.16); }
+        .featured-meta, .section-heading { display: flex; align-items: center; justify-content: space-between; color: #8390ab; font-size: 9px; font-weight: 700; letter-spacing: 2.1px; }
+        .featured-tag { color: #00f2ff; font-size: 8px; letter-spacing: 1.2px; }
+        #introScreen .menu-button { min-width: 0; margin: 0; font-family: 'Orbitron', sans-serif; text-transform: uppercase; cursor: pointer; }
+        #introScreen .menu-primary { display: flex; align-items: center; width: 100%; gap: 13px; margin-top: 10px; padding: 15px 16px; border: 1px solid #00f2ff; border-radius: 15px; color: #fff; background: linear-gradient(105deg, rgba(0,242,255,.19), rgba(0,242,255,.04)); box-shadow: 0 0 22px rgba(0,242,255,.12); text-align: left; }
+        #introScreen .menu-primary:hover, #introScreen .menu-primary:active { transform: translateY(-2px); background: linear-gradient(105deg, rgba(0,242,255,.32), rgba(188,0,255,.14)); box-shadow: 0 0 28px rgba(0,242,255,.28); }
+        .play-icon { display: grid; place-items: center; width: 38px; height: 38px; padding-left: 2px; border-radius: 11px; color: #031016; background: #00f2ff; box-shadow: 0 0 16px rgba(0,242,255,.45); font-size: 13px; }
+        .play-copy { display: block; }
+        .play-copy small { display: block; color: #7ecdd5; font-size: 8px; letter-spacing: 1.5px; }
+        .play-copy strong { display: block; margin-top: 4px; color: #fff; font-size: 20px; letter-spacing: 4px; }
+        .button-arrow { margin-left: auto; color: #00f2ff; font-family: 'Segoe UI', sans-serif; font-size: 25px; }
+        .home-section { padding-top: 17px; }
+        .section-heading h2 { margin: 0; color: #c1cade; font-size: 10px; font-weight: 700; letter-spacing: 2.4px; }
+        .section-heading > span { color: #66738f; font-size: 8px; letter-spacing: 1px; }
+        .mode-list { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+        #introScreen .compact-button { display: grid; grid-template-columns: 32px 1fr 20px; align-items: center; width: 100%; min-height: 59px; padding: 10px 12px; border: 1px solid rgba(124,143,183,.22); border-radius: 13px; background: rgba(255,255,255,.035); color: #fff; text-align: left; box-shadow: none; }
+        #introScreen .compact-button:hover, #introScreen .compact-button:active { transform: translateX(3px); background: rgba(255,255,255,.08); box-shadow: none; }
+        .mode-number { align-self: center; color: currentColor; font-size: 10px; font-weight: 700; opacity: .85; letter-spacing: 1px; }
+        .mode-copy strong { display: block; color: #e8edf7; font-size: 10px; line-height: 1.35; letter-spacing: 1.1px; }
+        .mode-copy small { display: block; margin-top: 3px; color: #7e89a0; font-family: 'Segoe UI', sans-serif; font-size: 11px; letter-spacing: 0; text-transform: none; }
+        .row-arrow { justify-self: end; color: currentColor; font-family: 'Segoe UI', sans-serif; font-size: 24px; font-weight: 300; opacity: .8; }
+        .home-tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .tool-button { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 62px; padding: 8px 4px; border: 1px solid rgba(125,143,180,.2); border-radius: 13px; background: rgba(255,255,255,.03); color: #9da9bf; cursor: pointer; font-family: 'Orbitron', sans-serif; transition: all .2s; }
+        .tool-button:hover, .tool-button:active { transform: translateY(-2px); background: rgba(255,255,255,.08); }
+        .tool-icon { display: grid; place-items: center; width: 22px; height: 22px; margin-bottom: 5px; border: 1px solid currentColor; border-radius: 7px; font-family: 'Segoe UI', sans-serif; font-size: 14px; }
+        .tool-button > span:last-child { font-size: 8px; letter-spacing: 1px; }
+        .tool-button.gift { color: #00ffcc; border-color: rgba(0,255,204,.28); }
+        .tool-button.shop { color: #ffd700; border-color: rgba(255,215,0,.28); }
+        .tool-button.stats { color: #00ff88; border-color: rgba(0,255,136,.28); }
+        .tool-button.secondary { color: #c78cff; border-color: rgba(188,0,255,.28); }
+        .home-footer { margin: 0; color: #4d5973; font-size: 8px; font-weight: 700; letter-spacing: 2px; text-align: center; }
+        .home-footer span { padding: 0 4px; color: #00f2ff; }
+        @media (max-width: 430px) {
+            #introScreen { padding-left: 12px; padding-right: 12px; }
+            .home-screen { gap: 13px; }
+            .home-content { padding: 13px; border-radius: 19px; }
+            .home-intro { padding-top: 6px; }
+            .home-caption { font-size: 14px; }
+            .online-status { padding: 7px 8px; font-size: 7px; }
+            .home-topbar .neon-title { font-size: clamp(1.85rem, 10vw, 2.7rem); }
+            .home-kicker { font-size: 7px; letter-spacing: 1.8px; }
+            .home-mark { flex-basis: 39px; width: 39px; height: 39px; }
+            .tool-button { min-height: 58px; }
+        }
     </style>
 </head>
 <body>
     <!-- INTRO / MAIN MENU -->
     <div id="introScreen">
-        <div class="menu-shell">
-            <section class="brand-panel">
-                <div class="menu-eyebrow"><span class="eyebrow-dot"></span> NEON PUZZLE ARENA</div>
-                <h1 class="neon-title">LÖBRE</h1>
-                <p class="neon-subtitle">NEON BLOCK BLAST <b>PRO</b></p>
-                <div class="brand-line"></div>
-                <p class="menu-description">Blokları yerleştir, kombo zincirini büyüt ve kendi rekorunu kır.</p>
+        <div class="home-screen">
+            <header class="home-topbar">
+                <div class="home-brand">
+                    <div class="home-mark">L</div>
+                    <div class="home-brand-copy">
+                        <span class="home-kicker">NEON BLOCK BLAST</span>
+                        <h1 class="neon-title">LÖBRE</h1>
+                    </div>
+                </div>
+                <div class="online-status"><i></i> ONLINE</div>
+            </header>
+
+            <section class="home-intro">
+                <p class="home-welcome">ARENA’YA HOŞ GELDİN</p>
+                <p class="home-caption">Kombo kur. Rekor kır.</p>
             </section>
 
-            <section class="menu-panel" aria-label="Ana menü">
-                <div class="menu-hero">
-                    <div class="menu-hero-top"><span>OYUNA BAŞLA</span><span class="menu-live"><i></i> HAZIR</span></div>
+            <main class="home-content" aria-label="Ana menü">
+                <section class="featured-game">
+                    <div class="featured-meta"><span>KLASİK MOD</span><span class="featured-tag">ÖNERİLEN</span></div>
                     <button class="menu-button menu-primary" onclick="startNormalMode()">
-                        <span class="button-kicker">KLASİK MOD</span>
-                        <strong>OYNA</strong>
+                        <span class="play-icon">▶</span>
+                        <span class="play-copy"><small>EN İYİ SKORUNU GEÇ</small><strong>OYNA</strong></span>
                         <span class="button-arrow">→</span>
                     </button>
-                </div>
+                </section>
 
-                <div class="menu-section-label">OYUN MODLARI</div>
-                <div class="mode-grid">
-                    <button class="menu-button compact-button timeattack" onclick="startTimeAttackMode()">
-                        <span class="mode-number">01</span><span><strong>ZAMANA KARŞI</strong><small>Süreyi yen</small></span>
-                    </button>
-                    <button class="menu-button compact-button timed" onclick="showDurationModal()">
-                        <span class="mode-number">02</span><span><strong>ZAMANLAMA</strong><small>Süreyi seç</small></span>
-                    </button>
-                    <button class="menu-button compact-button challenge" onclick="startChallengeMode()">
-                        <span class="mode-number">03</span><span><strong>30 HAMLE</strong><small>Hamleni planla</small></span>
-                    </button>
-                </div>
+                <section class="home-section">
+                    <div class="section-heading"><h2>OYUN MODLARI</h2><span>3 MOD</span></div>
+                    <div class="mode-list">
+                        <button class="menu-button compact-button timeattack" onclick="startTimeAttackMode()"><span class="mode-number">01</span><span class="mode-copy"><strong>ZAMANA KARŞI</strong><small>Süreyi yen</small></span><span class="row-arrow">›</span></button>
+                        <button class="menu-button compact-button timed" onclick="showDurationModal()"><span class="mode-number">02</span><span class="mode-copy"><strong>ZAMANLAMA</strong><small>Süreyi seç</small></span><span class="row-arrow">›</span></button>
+                        <button class="menu-button compact-button challenge" onclick="startChallengeMode()"><span class="mode-number">03</span><span class="mode-copy"><strong>30 HAMLE</strong><small>Hamleni planla</small></span><span class="row-arrow">›</span></button>
+                    </div>
+                </section>
+            </main>
 
-                <div class="menu-section-label">MERKEZ</div>
-                <div class="utility-grid">
-                    <button class="menu-button utility-button gift" id="dailyRewardBtn" onclick="claimDailyReward()"><span>GÜNLÜK ÖDÜL</span><small>Bugünkü hediyen</small></button>
-                    <button class="menu-button utility-button shop" onclick="openShop()"><span>MAĞAZA</span><small>Power-up’larını güçlendir</small></button>
-                    <button class="menu-button utility-button stats" onclick="showStats()"><span>İSTATİSTİKLER</span><small>Performansını gör</small></button>
-                    <button class="menu-button utility-button secondary" onclick="openSettings()"><span>AYARLAR</span><small>Deneyimini kişiselleştir</small></button>
-                </div>
-            </section>
+            <nav class="home-tools" aria-label="Diğer seçenekler">
+                <button class="tool-button gift" id="dailyRewardBtn" onclick="claimDailyReward()"><span class="tool-icon">+</span><span>ÖDÜL</span></button>
+                <button class="tool-button shop" onclick="openShop()"><span class="tool-icon">◆</span><span>MAĞAZA</span></button>
+                <button class="tool-button stats" onclick="showStats()"><span class="tool-icon">↗</span><span>SKORLAR</span></button>
+                <button class="tool-button secondary" onclick="openSettings()"><span class="tool-icon">≡</span><span>AYARLAR</span></button>
+            </nav>
+            <p class="home-footer">LÖBRE PRO <span>•</span> BLOCK PUZZLE ARENA</p>
         </div>
     </div>
 
