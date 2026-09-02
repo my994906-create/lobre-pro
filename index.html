@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#010103">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="LÖBRE PRO">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="./icons/icon-192.png">
     <title>Neon Block Blast PRO | Combo • Mağaza</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
@@ -333,16 +341,6 @@
     </style>
 </head>
 <body>
-    <div id="bootScreen">
-        <div class="boot-ring r3"></div>
-        <div class="boot-ring r2"></div>
-        <div class="boot-ring r1"></div>
-        <div class="boot-core">L</div>
-        <div class="boot-brand">LÖBRE</div>
-        <div class="boot-status" id="bootStatus">Arena hazırlanıyor</div>
-        <div class="boot-progress"><span id="bootProgress"></span></div>
-    </div>
-
     <!-- INTRO -->
     <div id="introScreen">
         <h1 class="neon-title">LÖBRE</h1>
@@ -1634,27 +1632,10 @@
         }, 200);
     });
 
-    function bootSequence() {
-        const boot = document.getElementById('bootScreen');
-        const progress = document.getElementById('bootProgress');
-        const status = document.getElementById('bootStatus');
-        if (!boot || !progress || !status) return;
-        const steps = ['Çekirdek yükleniyor', 'Modüller senkronize ediliyor', 'Arena hazır'];
-        let step = 0;
-        progress.style.width = '18%';
-        const interval = setInterval(() => {
-            status.innerText = steps[Math.min(step, steps.length - 1)];
-            progress.style.width = `${Math.min(100, 38 + step * 28)}%`;
-            step++;
-            if (step > steps.length) {
-                clearInterval(interval);
-                setTimeout(() => boot.classList.add('hide'), 260);
-            }
-        }, 420);
-    }
-
     loadAll();
-    bootSequence();
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+    }
     document.addEventListener('click', ensureAudio, { once: true });
     document.addEventListener('touchstart', ensureAudio, { once: true });
 
